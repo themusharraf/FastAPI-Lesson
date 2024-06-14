@@ -1,3 +1,4 @@
+import uvicorn
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 from typing import List, Optional
@@ -50,3 +51,7 @@ def delete_todo_item(item_id: int):
         raise HTTPException(status_code=404, detail="Item not found")
     todo_list.pop(index)
     return {"message": "Item deleted successfully"}
+
+
+if __name__ == "__main__":
+    uvicorn.run("main:app", host="127.0.0.1", port=8000, reload=True, log_level="debug", )

@@ -1,3 +1,4 @@
+import uvicorn
 from fastapi import FastAPI
 
 app = FastAPI()
@@ -34,3 +35,5 @@ async def user_change_name(userid: int, new_name: str):
     return {"status_code": 200, "data": current_user}
 
 
+if __name__ == "__main__":
+    uvicorn.run("main:app", host="127.0.0.1", port=8000, reload=True, log_level="debug")
