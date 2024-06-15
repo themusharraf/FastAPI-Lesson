@@ -1,0 +1,12 @@
+alembic init migrations
+postgresql://%(DB_USER)s:%(DB_PASS)s@%(DB_HOST)s:%(DB_PORT)s/%(DB_NAME)s
+
+.env
+DB_HOST=localhost
+DB_port=5432
+DB_NAME=bookdb
+DB_USER=postgres
+DB_PASS=0
+
+alembic revision --autogenerate -m "Database create"
+alembic upgrade (hash 95b1626d25be) 
